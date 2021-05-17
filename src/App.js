@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Navbar from './components/Navbar'
+import Landing from './components/Landing'
+import {HashRouter as Router, Route} from 'react-router-dom'
+import Movie from './components/Movies'
+import Search from './components/Search'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div style={{backgroundColor:"black"}}>
+        <Navbar />
+        <Route key="Landing" exact path="/" component={Landing} />
+        <Route key="Movie" exact path="/movie/:id" component={Movie} />
+        <Route key="Search" exact path="/movie/search/:name" component={Search} />
+      </div>
+    </Router>
+    )
 }
 
 export default App;
