@@ -7,12 +7,13 @@ import './Search.css'
 
 function Search() {
 
+    const APIKE = APIKEY || process.env.APIKEY
     const { name } = useParams()
     const [movie,setmovie] = useState([])
     const image = "http://image.tmdb.org/t/p/original/"
 
     useEffect(() => {
-            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${name}`)
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${APIKE}&query=${name}`)
             .then(res => {
                 const data = res.data.results
                 setmovie(data)
@@ -20,7 +21,7 @@ function Search() {
             .catch(err => {
                 console.log(err)
             })
-        },[movie,name])
+        },[movie,name,APIKE])
 
     return (
         <div style={{marginTop: "70px"}}>

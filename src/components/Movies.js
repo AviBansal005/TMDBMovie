@@ -12,10 +12,10 @@ function Movies() {
     const [poster, setposter] = useState('')
     const [backdrop,setbackdrop] = useState('')
     const image = "http://image.tmdb.org/t/p/original/"
-    
+    const APIKE = APIKEY || process.env.APIKEY
 
     useEffect(() => {
-        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIKEY}&language=en-US`)
+        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIKE}&language=en-US`)
             .then(res => {
                 setMovie(res.data)
                 setgenre(res.data.genres)
@@ -25,7 +25,7 @@ function Movies() {
             .catch(err => {
                 console.log(err)
             })
-    },[id])
+    },[id,APIKE])
 
     return (
         <div> 
