@@ -15,7 +15,7 @@ function Search() {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${name}`)
             .then(res => {
                 const data = res.data.results
-                setmovie(data)
+                return setmovie(data)
             })
             .catch(err => {
                 console.log(err)

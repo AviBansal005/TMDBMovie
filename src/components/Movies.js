@@ -20,7 +20,7 @@ function Movies() {
                 setMovie(res.data)
                 setgenre(res.data.genres)
                 setposter(res.data.poster_path)
-                setbackdrop(res.data.backdrop_path)
+                return setbackdrop(res.data.backdrop_path)
             })
             .catch(err => {
                 console.log(err)

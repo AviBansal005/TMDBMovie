@@ -1,1 +1,1 @@
-export const APIKEY = process.env.APIKEY
+export const APIKEY = process.env.REACT_APP_API_KEY
